@@ -12,7 +12,10 @@ const RegisterForm = () => {
       },
     });
     const json = await resp.json();
+    alert(json.message);
+    if (json.newUser) window.location.href = './login';
     console.log(json);
+    // if (json.message) window.location.href = './login';
   };
   return (
     <section className="d-flex flex-column justify-content-center align-items-center form-container">
