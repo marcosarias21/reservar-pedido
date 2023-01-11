@@ -20,7 +20,7 @@ const LoginForm = () => {
     <form onSubmit={handleSubmit(onSubmit)} className='form-bg'>
       <h4 className='text-center mt-3 mb-5 fw-bold'>Login</h4>
       <div className="form-floating mb-3">
-        <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" {...register('email')}  />
+        <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" {...register('email')} />
         <label htmlFor="floatingInput">Email address</label>
       </div>
       <div className="form-floating">
