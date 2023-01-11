@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
-import './form.scss';
+import './registerform.scss';
 
-const Form = () => {
+const RegisterForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = async (data) => {
     const resp = await fetch('http://localhost:8000/users', {
@@ -44,4 +44,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default RegisterForm;
