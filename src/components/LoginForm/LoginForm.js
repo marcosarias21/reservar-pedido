@@ -1,10 +1,14 @@
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import userContext from '../../provider/UserContext';
 import './loginform.scss';
 
 const LoginForm = () => {
   const { register, handleSubmit } = useForm();
-  const [dataUser, setDataUser] = useState({});
+  const { setDataUser, dataUser } = useContext(userContext);
+  const navigate = useNavigate();
+  console.log(dataUser);
 
   const onSubmit = async (data) => {
     const resp = await fetch('http://localhost:8000/login', {
@@ -16,8 +20,9 @@ const LoginForm = () => {
     });
     const json = await resp.json();
     if (resp.ok) {
+      localStorage.setItem('User', JSON.stringify(json));
       setDataUser(json.user);
-      window.location.href = '/home';
+      navigate('/home');
     } else {
       alert(json.message);
     }
