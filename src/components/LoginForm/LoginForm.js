@@ -1,10 +1,13 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import userContext from '../../provider/UserContext';
+import { Alert } from '../Alert';
 import './loginform.scss';
 
 const LoginForm = () => {
+  const [showAlert, setShowAlert] = useState(false);
+  const [message, setMessage] = useState('');
   const { register, handleSubmit } = useForm();
   const { setDataUser, dataUser } = useContext(userContext);
   const navigate = useNavigate();
@@ -24,7 +27,8 @@ const LoginForm = () => {
       setDataUser(json.user);
       navigate('/home');
     } else {
-      alert(json.message);
+      setShowAlert(true);
+      setMessage(json.message);
     }
   };
 
@@ -42,6 +46,7 @@ const LoginForm = () => {
       <div className='d-flex justify-content-center my-3'>
         <button type='submit' className='btn btn-primary w-100 px-5 py-3 fw-bold text-center'>Loguearse</button>
       </div>
+      {showAlert ? <Alert message={message} /> : null }
     </form>
   );
 };
