@@ -1,8 +1,10 @@
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 import './loginform.scss';
 
 const LoginForm = () => {
   const { register, handleSubmit } = useForm();
+  const [dataUser, setDataUser] = useState({});
 
   const onSubmit = async (data) => {
     const resp = await fetch('http://localhost:8000/login', {
@@ -13,7 +15,12 @@ const LoginForm = () => {
       },
     });
     const json = await resp.json();
-    console.log(json);
+    if (resp.ok) {
+      setDataUser(json.user);
+      window.location.href = '/home';
+    } else {
+      alert(json.message);
+    }
   };
 
   return (
