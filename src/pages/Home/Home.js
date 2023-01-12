@@ -1,6 +1,11 @@
+import { useContext } from 'react';
+import userContext from '../../provider/UserContext';
+
 const Home = () => {
+  const { dataUser } = useContext(userContext);
+  const { nombre, apellido } = dataUser;
   return (
-    <div>Home</div>
+    <div> hola {nombre} {apellido}</div>
   );
 };
 
