@@ -45,6 +45,10 @@ const RegisterForm = () => {
           <input type="password" className="form-control" id="floatingPassword" {...register('password')} placeholder="Password" required />
           <label htmlFor="floatingPassword">Password</label>
         </div>
+        <div className="form-floating mb-3">
+          <input type="text" className="form-control" id="floatingEmpresa" {...register('empresa')} placeholder="name@example.com" required />
+          <label htmlFor="floatingEmpresa">Empresa</label>
+        </div>
         <div className='d-flex justify-content-center my-3'>
           <button type='submit' className='btn btn-primary w-100 px-5 py-3 fw-bold text-center'> Crear Cuenta </button>
         </div>
