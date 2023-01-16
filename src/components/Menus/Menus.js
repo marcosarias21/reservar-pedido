@@ -5,11 +5,14 @@ import userContext from '../../provider/UserContext';
 const Menus = ({ imagen, nombre, id }) => {
   const { dataUser } = useContext(userContext);
   const [data, setData] = useState({
-    nombre,
-    id,
+    nombre: '',
+    id: '',
+    time: '',
   });
   const addProduct = async (pedido, uid) => {
-    setData({ nombre: pedido, id: uid });
+    const date = new Date();
+    console.log(date.toLocaleDateString());
+    setData({ nombre: pedido, id: uid, hora: date.toLocaleDateString() });
     const resp = await fetch('http://localhost:8000/users', {
       method: 'PUT',
       body: JSON.stringify(data),
