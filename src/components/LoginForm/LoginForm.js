@@ -24,7 +24,7 @@ const LoginForm = () => {
     const json = await resp.json();
     if (resp.ok) {
       localStorage.setItem('User', JSON.stringify(json));
-      setDataUser(json.user);
+      setDataUser(json);
       navigate('/home');
     } else {
       setShowAlert(true);
