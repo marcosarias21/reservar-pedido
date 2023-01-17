@@ -1,13 +1,13 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import alertContext from '../../provider/AlertContext';
 import userContext from '../../provider/UserContext';
 import { Alert } from '../Alert';
 import './loginform.scss';
 
-const LoginForm = () => {
-  const [showAlert, setShowAlert] = useState(false);
-  const [message, setMessage] = useState('');
+const LoginForm = ({ showAlert, message }) => {
+  const { setMessage, setShowAlert } = useContext(alertContext);
   const { register, handleSubmit } = useForm();
   const { setDataUser, dataUser } = useContext(userContext);
   const navigate = useNavigate();
