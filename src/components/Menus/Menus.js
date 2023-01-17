@@ -5,13 +5,17 @@ import userContext from '../../provider/UserContext';
 const Menus = ({ imagen, nombre }) => {
   const { dataUser } = useContext(userContext);
   const [data, setData] = useState({
-    nombre: '',
-    token: '',
-    time: '',
+    id: '',
+    nuevoPedido: '',
+    hora: '',
   });
-  const addProduct = async (pedido, token) => {
+  const addProduct = async (pedido) => {
     const date = new Date();
-    setData({ nombre: pedido, token, hora: date.toLocaleDateString() });
+    setData({
+      email: dataUser?.user.email,
+      nuevoPedido: pedido,
+      hora: date.toLocaleDateString(),
+    });
     const resp = await fetch('http://localhost:8000/users', {
       method: 'PUT',
       body: JSON.stringify(data),
@@ -31,7 +35,7 @@ const Menus = ({ imagen, nombre }) => {
       <img src={imagen} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-title">{nombre}</h5>
-        <button onClick={() => addProduct(nombre, dataUser.token)} className="btn btn-primary">Go somewhere</button>
+        <button onClick={() => addProduct(nombre)} className="btn btn-primary">Go somewhere</button>
       </div>
     </div>
   );
