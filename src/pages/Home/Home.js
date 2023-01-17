@@ -1,16 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
 import { Menus } from '../../components/Menus';
+import { Nabvar } from '../../components/Navbar';
 import userContext from '../../provider/UserContext';
 
 const Home = () => {
   const { dataUser } = useContext(userContext);
-  console.log(dataUser.user.empresa);
+  if (!dataUser?.token) window.location.href = '/login';
   const [menuData, setMenuData] = useState([]);
-  console.log(menuData);
   const getDataMenu = async () => {
     const resp = await fetch('http://localhost:8000/menu');
     const json = await resp.json();
-    console.log(json);
     const menuFiltered = json?.menu.filter(menu => menu.empresa === dataUser.user.empresa);
     setMenuData(menuFiltered);
   };
@@ -20,11 +19,14 @@ const Home = () => {
   }, []);
 
   return (
+    <>
+    <Nabvar dataUser={dataUser?.user} />
     <section className='row'>
       {
-        menuData?.map(menu => <Menus key={menu.id} {...menu}/>)
+        menuData?.map(menu => <Menus key={menu.id} {...menu} />)
       }
     </section>
+    </>
   );
 };
 
