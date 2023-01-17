@@ -9,11 +9,12 @@ const Menus = ({ imagen, nombre }) => {
     nuevoPedido: '',
     hora: '',
   });
-  const addProduct = async (pedido) => {
+
+  const addProduct = async (nombrePedido) => {
     const date = new Date();
     setData({
       email: dataUser?.user.email,
-      nuevoPedido: pedido,
+      nuevoPedido: nombrePedido,
       hora: date.toLocaleDateString(),
     });
     const resp = await fetch('http://localhost:8000/users', {

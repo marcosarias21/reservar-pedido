@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import alertContext from '../../provider/AlertContext';
 import { Alert } from '../Alert';
 import './registerform.scss';
 
-const RegisterForm = () => {
-  const [showAlert, setShowAlert] = useState(false);
-  const [message, setMessage] = useState('');
+const RegisterForm = ({ showAlert, message }) => {
+  const { setShowAlert, setMessage } = useContext(alertContext);
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = async (data) => {
     const resp = await fetch('http://localhost:8000/users', {
