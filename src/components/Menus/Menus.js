@@ -10,11 +10,12 @@ const Menus = ({ imagen, nombre }) => {
     hora: '',
   });
 
-  const addProduct = async (nombrePedido) => {
+  console.log(data);
+  const addProduct = async (pedido) => {
     const date = new Date();
     setData({
       email: dataUser?.user.email,
-      nuevoPedido: nombrePedido,
+      nuevoPedido: pedido,
       hora: date.toLocaleDateString(),
     });
     const resp = await fetch('http://localhost:8000/users', {
@@ -25,11 +26,12 @@ const Menus = ({ imagen, nombre }) => {
       },
     });
     const json = await resp.json();
+    console.log(json);
   };
 
   useEffect(() => {
     addProduct();
-  }, []);
+  }, [data.nuevoPedido]);
 
   return (
     <div className="card col-4">
