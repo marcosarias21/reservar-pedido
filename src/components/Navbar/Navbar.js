@@ -18,7 +18,7 @@ const Navbar = ({ dataUser }) => {
             <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">{dataUser?.nombre} {dataUser?.apellido}</h5>
             <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
-          {dataUser.rol === 'Cliente' ? <OffCanvasUser /> : <OffCanvasAdmin /> }
+          {dataUser?.rol === 'Cliente' ? <OffCanvasUser /> : <OffCanvasAdmin /> }
         </div>
       </div>
     </nav>
