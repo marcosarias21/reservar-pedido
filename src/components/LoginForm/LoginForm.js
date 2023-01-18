@@ -33,7 +33,7 @@ const LoginForm = ({ showAlert, message }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='form-bg'>
+    <form onSubmit={handleSubmit(onSubmit)} className='login-form'>
       <h4 className='text-center mt-3 mb-5 fw-bold'>Login</h4>
       <div className="form-floating mb-3">
         <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" {...register('email')} />

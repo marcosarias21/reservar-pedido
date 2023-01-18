@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import alertContext from '../../provider/AlertContext';
@@ -8,6 +8,7 @@ import './registerform.scss';
 const RegisterForm = ({ showAlert, message }) => {
   const { setShowAlert, setMessage } = useContext(alertContext);
   const { register, handleSubmit, formState: { errors } } = useForm();
+
   const onSubmit = async (data) => {
     const resp = await fetch('http://localhost:8000/users', {
       method: 'POST',
@@ -30,7 +31,6 @@ const RegisterForm = ({ showAlert, message }) => {
     }
   };
   return (
-    <section className="d-flex flex-column justify-content-center align-items-center form-container">
       <form onSubmit={handleSubmit(onSubmit)} className='form-bg'>
         <h4 className='text-center mt-3 mb-5 fw-bold'>Registro</h4>
         <div className='d-flex justify-content-center mb-3'>
@@ -51,16 +51,16 @@ const RegisterForm = ({ showAlert, message }) => {
           <input type="password" className="form-control" id="floatingPassword" {...register('password')} placeholder="Password" required />
           <label htmlFor="floatingPassword">Password</label>
         </div>
-        <div className="form-floating mb-3">
-          <input type="text" className="form-control" id="floatingEmpresa" {...register('empresa')} placeholder="name@example.com" required />
-          <label htmlFor="floatingEmpresa">Empresa</label>
-        </div>
+        <select className="form-select form-select-lg mt-4" aria-label="Default select example" {...register('empresa')}>
+          <option selected disabled>Empresa</option>
+          <option value="Refinor">Refinor</option>
+          <option value="Ypf">Ypf</option>
+        </select>
         <div className='d-flex justify-content-center my-3'>
           <button type='submit' className='btn btn-primary w-100 px-5 py-3 fw-bold text-center'> Crear Cuenta </button>
         </div>
         {showAlert ? <Alert message={message} /> : null}
       </form>
-    </section>
   );
 };
 
