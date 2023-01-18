@@ -6,7 +6,7 @@ const Navbar = ({ dataUser }) => {
   return (
     <nav className="navbar navbar-dark bg-primary">
       <div className="container-fluid">
-        <span className="navbar-brand" href="#">Cliente: {dataUser?.nombre} {dataUser?.apellido} </span>
+        <span className="navbar-brand" href="#">{dataUser?.rol}: {dataUser?.nombre} {dataUser?.apellido} </span>
         <span className="navbar-brand" href="#">Empresa: {dataUser?.empresa} </span>
         <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
           <span className="navbar-toggler-icon"></span>
