@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 import alertContext from '../../provider/AlertContext';
 import { Alert } from '../Alert';
 import './registerform.scss';
@@ -17,7 +18,12 @@ const RegisterForm = ({ showAlert, message }) => {
     });
     const json = await resp.json();
     if (resp.ok) {
-      window.location.href = './login';
+      Swal.fire(
+        'Success!',
+        'Usuario creado correctamente!',
+        'success',
+      );
+      setTimeout(() => { window.location.href = './login'; }, 1000);
     } else {
       setShowAlert(true);
       setMessage(json.message);
