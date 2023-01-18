@@ -1,12 +1,11 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Menus } from '../../components/Menus';
 import { Nabvar } from '../../components/Navbar';
 import userContext from '../../provider/UserContext';
 
 const Home = () => {
-  const { dataUser } = useContext(userContext);
+  const { dataUser, setMenuData, menuData } = useContext(userContext);
   if (!dataUser?.token) window.location.href = '/login';
-  const [menuData, setMenuData] = useState([]);
   const getDataMenu = async () => {
     const resp = await fetch('http://localhost:8000/menu');
     const json = await resp.json();

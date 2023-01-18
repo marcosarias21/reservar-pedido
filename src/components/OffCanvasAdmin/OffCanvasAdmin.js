@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import userContext from '../../provider/UserContext';
 
 const OffCanvasAdmin = () => {
@@ -13,7 +14,7 @@ const OffCanvasAdmin = () => {
             <a className="dropdown-item" href="#">Clientes</a>
           </li>
           <li>
-            <a className="dropdown-item" href="#">Menus</a>
+            <Link className="dropdown-item" to="/menus">Menus</Link>
           </li>
           <li>
             <button className="dropdown-item" onClick={() => setDataUser(null)}>Cerrar Sesion</button>
