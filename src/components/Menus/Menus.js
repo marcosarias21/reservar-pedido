@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { useContext, useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import userContext from '../../provider/UserContext';
 
 const Menus = ({ imagen, nombre }) => {
@@ -9,15 +10,9 @@ const Menus = ({ imagen, nombre }) => {
     nuevoPedido: '',
     hora: '',
   });
-
   console.log(data);
-  const addProduct = async (pedido) => {
-    const date = new Date();
-    setData({
-      email: dataUser?.user.email,
-      nuevoPedido: pedido,
-      hora: date.toLocaleDateString(),
-    });
+
+  const addProduct = async () => {
     const resp = await fetch('http://localhost:8000/users', {
       method: 'PUT',
       body: JSON.stringify(data),
@@ -26,11 +21,28 @@ const Menus = ({ imagen, nombre }) => {
       },
     });
     const json = await resp.json();
-    console.log(json);
+    console.log(resp.ok);
+    if (resp.ok) {
+      Swal.fire(
+        'Success!',
+        'Reservaste un pedido!',
+        'success',
+      );
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Algo salio mal!',
+      });
+    }
   };
-
   useEffect(() => {
-    addProduct();
+    const date = new Date();
+    setData({
+      email: dataUser?.user.email,
+      nuevoPedido: nombre,
+      hora: date.toLocaleDateString(),
+    });
   }, [data.nuevoPedido]);
 
   return (
@@ -38,7 +50,7 @@ const Menus = ({ imagen, nombre }) => {
       <img src={imagen} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-title">{nombre}</h5>
-        <button onClick={() => addProduct(nombre)} className="btn btn-primary">Go somewhere</button>
+        <button onClick={addProduct} className="btn btn-primary">Go somewhere</button>
       </div>
     </div>
   );
