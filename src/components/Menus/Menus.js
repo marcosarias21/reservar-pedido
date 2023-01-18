@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import userContext from '../../provider/UserContext';
@@ -10,7 +9,6 @@ const Menus = ({ imagen, nombre }) => {
     nuevoPedido: '',
     hora: '',
   });
-  console.log(data);
 
   const addProduct = async () => {
     const resp = await fetch('http://localhost:8000/users', {
