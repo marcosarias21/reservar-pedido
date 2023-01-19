@@ -43,9 +43,9 @@ const MenusAdmin = ({ nombre, empresa, _id }) => {
           </td>
           <td className='col-4'>
             <select className="form-select border-0" aria-label="Default select example" disabled={edit === false} {...register('empresa')}>
-              <option value={empresa} selected> {empresa}</option>
+              <option selected> {empresa}</option>
               <option value={empresa === 'Refinor' ? 'Ypf' : 'Refinor'}>{empresa === 'Refinor' ? 'Ypf' : 'Refinor'}</option>
-              <option value="Ambas">Ambas</option>
+              <option value={empresa === 'Ambas' ? 'Ypf' : 'Ambas'}>{empresa === 'Ambas' ? 'Ypf' : 'Ambas'}</option>
             </select>
           </td>
           <td className='col-3'>

@@ -1,13 +1,10 @@
-import {
-  useContext, useEffect, useRef, useState,
-} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { MenusAdmin } from '../../components/MenusAdmin';
 import { Nabvar } from '../../components/Navbar';
-import userContext from '../../provider/UserContext';
 import './menuspage.scss';
 
 const MenusPage = () => {
-  const { dataUser } = useContext(userContext);
+  const user = JSON.parse(localStorage.getItem('User'));
   const tableRef = useRef();
   const [allMenu, setAllMenu] = useState([]);
   const getAllMenus = async () => {
@@ -22,7 +19,7 @@ const MenusPage = () => {
 
   return (
     <>
-    <Nabvar dataUser={dataUser.user} />
+    <Nabvar user={user.user} />
     <table className='table' ref={tableRef}>
         <thead>
         <tr>

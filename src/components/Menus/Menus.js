@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import userContext from '../../provider/UserContext';
 
 const Menus = ({ imagen, nombre }) => {
-  const { dataUser } = useContext(userContext);
+  const user = JSON.parse(localStorage.getItem('User'));
   const [data, setData] = useState({
     id: '',
     nuevoPedido: '',
@@ -19,7 +18,6 @@ const Menus = ({ imagen, nombre }) => {
       },
     });
     const json = await resp.json();
-    console.log(resp.ok);
     if (resp.ok) {
       Swal.fire(
         'Success!',
@@ -37,7 +35,7 @@ const Menus = ({ imagen, nombre }) => {
   useEffect(() => {
     const date = new Date();
     setData({
-      email: dataUser?.user.email,
+      email: user?.user.email,
       nuevoPedido: nombre,
       hora: date.toLocaleDateString(),
     });
