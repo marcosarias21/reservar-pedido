@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import userContext from '../../provider/UserContext';
 
 const OffCanvasAdmin = () => {
-  const { setDataUser } = useContext(userContext);
+  const logOut = () => {
+    localStorage.clear();
+    window.location.href = '/login';
+  };
   return (
     <div className="offcanvas-body">
       <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -17,7 +20,7 @@ const OffCanvasAdmin = () => {
             <Link className="dropdown-item" to="/menus">Menus</Link>
           </li>
           <li>
-            <button className="dropdown-item" onClick={() => setDataUser(null)}>Cerrar Sesion</button>
+            <button className="dropdown-item" onClick={() => logOut()}>Cerrar Sesion</button>
           </li>
         </ul>
         </li>

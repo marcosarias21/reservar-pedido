@@ -1,8 +1,4 @@
-import { useContext } from 'react';
-import userContext from '../../provider/UserContext';
-
 const OffCanvasUser = () => {
-  const { setDataUser } = useContext(userContext);
   return (
     <div className="offcanvas-body">
       <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -13,7 +9,7 @@ const OffCanvasUser = () => {
             <a className="dropdown-item" href="#">Mis pedidos</a>
           </li>
           <li>
-            <button className="dropdown-item" onClick={() => setDataUser(null)}>Cerrar Sesion</button>
+            <button className="dropdown-item" onClick={() => localStorage.clear()}>Cerrar Sesion</button>
           </li>
         </ul>
         </li>

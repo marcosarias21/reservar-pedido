@@ -1,18 +1,12 @@
-import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import alertContext from '../../provider/AlertContext';
-import userContext from '../../provider/UserContext';
 import { Alert } from '../Alert';
 import './loginform.scss';
 
 const LoginForm = ({ showAlert, message }) => {
-  const { setMessage, setShowAlert } = useContext(alertContext);
   const { register, handleSubmit } = useForm();
-  const { setDataUser, dataUser } = useContext(userContext);
   const navigate = useNavigate();
-  console.log(dataUser);
 
   const onSubmit = async (data) => {
     const resp = await fetch('http://localhost:8000/login', {
@@ -26,7 +20,6 @@ const LoginForm = ({ showAlert, message }) => {
     console.log(json);
     if (resp.ok) {
       localStorage.setItem('User', JSON.stringify(json));
-      setDataUser(json);
       navigate('/home');
       if (json.user.rol === 'admin') { navigate('/admin'); }
     } else {
