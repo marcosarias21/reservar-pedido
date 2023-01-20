@@ -28,7 +28,7 @@ const Menus = ({ imagen, nombre }) => {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Algo salio mal!',
+        text: json.message,
       });
     }
   };

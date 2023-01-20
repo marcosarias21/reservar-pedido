@@ -1,6 +1,4 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import userContext from '../../provider/UserContext';
 
 const OffCanvasAdmin = () => {
   const logOut = () => {

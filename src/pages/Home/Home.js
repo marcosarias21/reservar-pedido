@@ -1,10 +1,10 @@
 import { useContext, useEffect } from 'react';
 import { Menus } from '../../components/Menus';
 import { Nabvar } from '../../components/Navbar';
-import userContext from '../../provider/UserContext';
+import menuContext from '../../provider/MenuContext';
 
 const Home = () => {
-  const { setMenuData, menuData } = useContext(userContext);
+  const { setMenuData, menuData } = useContext(menuContext);
   const user = JSON.parse(localStorage.getItem('User'));
   if (!user?.token) window.location.href = '/login';
   const getDataMenu = async () => {
