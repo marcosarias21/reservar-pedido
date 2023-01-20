@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import './registerform.scss';
 
-const RegisterForm = ({ showAlert, message }) => {
+const RegisterForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
