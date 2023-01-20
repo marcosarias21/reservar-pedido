@@ -17,11 +17,29 @@ const MenusAdmin = ({ nombre, empresa, _id }) => {
       },
     });
     const json = await resp.json();
-    console.log(json);
     if (resp.ok) {
       Swal.fire(
         'Success!',
         'Usuario editado correctamente!',
+        'success',
+      );
+      window.location.reload();
+    }
+  };
+
+  const deleteMenu = async (data) => {
+    const resp = await fetch('http://localhost:8000/menu', {
+      method: 'DELETE',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const json = await resp.json();
+    if (resp.ok) {
+      Swal.fire(
+        'Success!',
+        json.message,
         'success',
       );
       window.location.reload();
@@ -51,7 +69,7 @@ const MenusAdmin = ({ nombre, empresa, _id }) => {
           <td className='col-3'>
             <button className="btn btn-primary" onClick={() => setEdit(!edit)}><MdEdit /></button>
             <button type='submit' className="btn btn-success mx-1" onClick={handleSubmit(handleMenu)}><MdSave /></button>
-            <button className="btn btn-danger"><MdDelete /></button>
+            <button className="btn btn-danger" onClick={handleSubmit(deleteMenu)}><MdDelete /></button>
           </td>
         </tr>
       </tbody>

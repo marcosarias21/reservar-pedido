@@ -1,10 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { Alert } from '../Alert';
 import './loginform.scss';
 
-const LoginForm = ({ showAlert, message }) => {
+const LoginForm = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
 
@@ -17,7 +16,6 @@ const LoginForm = ({ showAlert, message }) => {
       },
     });
     const json = await resp.json();
-    console.log(json);
     if (resp.ok) {
       localStorage.setItem('User', JSON.stringify(json));
       navigate('/home');
@@ -45,7 +43,6 @@ const LoginForm = ({ showAlert, message }) => {
       <div className='d-flex justify-content-center my-3'>
         <button type='submit' className='btn btn-primary w-100 px-5 py-3 fw-bold text-center'>Loguearse</button>
       </div>
-      {showAlert ? <Alert message={message} /> : null }
     </form>
   );
 };

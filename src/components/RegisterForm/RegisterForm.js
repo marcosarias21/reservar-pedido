@@ -1,12 +1,8 @@
-import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
-import alertContext from '../../provider/AlertContext';
-import { Alert } from '../Alert';
 import './registerform.scss';
 
 const RegisterForm = ({ showAlert, message }) => {
-  const { setShowAlert, setMessage } = useContext(alertContext);
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
@@ -26,8 +22,11 @@ const RegisterForm = ({ showAlert, message }) => {
       );
       setTimeout(() => { window.location.href = './login'; }, 1000);
     } else {
-      setShowAlert(true);
-      setMessage(json.message);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: json.message,
+      });
     }
   };
   return (
@@ -59,7 +58,6 @@ const RegisterForm = ({ showAlert, message }) => {
         <div className='d-flex justify-content-center my-3'>
           <button type='submit' className='btn btn-primary w-100 px-5 py-3 fw-bold text-center'> Crear Cuenta </button>
         </div>
-        {showAlert ? <Alert message={message} /> : null}
       </form>
   );
 };
