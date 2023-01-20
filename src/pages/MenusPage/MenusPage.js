@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { MenusAdmin } from '../../components/MenusAdmin';
+import { ModalForm } from '../../components/ModalForm';
 import { Nabvar } from '../../components/Navbar';
 import './menuspage.scss';
 
@@ -34,6 +35,10 @@ const MenusPage = () => {
         allMenu?.map(menu => <MenusAdmin key={menu.id} {...menu} tableRef={tableRef} />)
       }
     </table>
+    <div className='d-flex justify-content-center'>
+      <ModalForm />
+      <button type="button" className="btn btn-outline-secondary rounded-1 fw-bold py-3 px-5" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Crear menu</button>
+    </div>
     </>
   );
 };
