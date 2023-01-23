@@ -1,4 +1,7 @@
+import useLogout from '../../hooks/useLogout';
+
 const OffCanvasUser = () => {
+  const logOut = useLogout();
   return (
     <div className="offcanvas-body">
       <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -9,7 +12,7 @@ const OffCanvasUser = () => {
             <a className="dropdown-item" href="#">Mis pedidos</a>
           </li>
           <li>
-            <button className="dropdown-item" onClick={() => localStorage.clear()}>Cerrar Sesion</button>
+            <button className="dropdown-item" onClick={logOut}>Cerrar Sesion</button>
           </li>
         </ul>
         </li>

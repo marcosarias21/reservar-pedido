@@ -1,0 +1,32 @@
+import { useEffect, useState } from 'react';
+import { Clients } from '../../components/Clients';
+import { Nabvar } from '../../components/Navbar';
+
+const AdminClients = () => {
+  const { user } = JSON.parse(localStorage.getItem('User'));
+  const [clients, setClients] = useState([]);
+  console.log(clients);
+  const getClients = async () => {
+    const resp = await fetch('http://localhost:8000/users');
+    const json = await resp.json();
+    setClients(json.users);
+  };
+
+  useEffect(() => {
+    if (user.rol !== 'Admin') window.location.href = '/home';
+    getClients();
+  }, []);
+
+  return (
+    <>
+      <Nabvar user={user} />
+      <section className='row justify-content-center mt-4'>
+        {
+          clients?.map(client => <Clients key={client.id} {...client} />)
+        }
+      </section>
+    </>
+  );
+};
+
+export default AdminClients;
