@@ -5,7 +5,7 @@ import { Nabvar } from '../../components/Navbar';
 import './menuspage.scss';
 
 const MenusPage = () => {
-  const user = JSON.parse(localStorage.getItem('User'));
+  const { user } = JSON.parse(localStorage.getItem('User'));
   const tableRef = useRef();
   const [allMenu, setAllMenu] = useState([]);
   const getAllMenus = async () => {
@@ -15,12 +15,13 @@ const MenusPage = () => {
   };
 
   useEffect(() => {
+    if (user.rol !== 'Admin') window.location.href = '/home';
     getAllMenus();
   }, []);
 
   return (
     <>
-    <Nabvar user={user.user} />
+    <Nabvar user={user} />
     <table className='table' ref={tableRef}>
         <thead>
         <tr>

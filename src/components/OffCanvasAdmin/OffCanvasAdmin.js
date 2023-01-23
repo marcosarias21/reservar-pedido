@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
+import useLogout from '../../hooks/useLogout';
 
 const OffCanvasAdmin = () => {
-  const logOut = () => {
-    localStorage.clear();
-    window.location.href = '/login';
-  };
+  const logOut = useLogout();
   return (
     <div className="offcanvas-body">
       <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -12,13 +10,13 @@ const OffCanvasAdmin = () => {
           <a className="nav-link dropdown-toggle text-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Detalles</a>
         <ul className="dropdown-menu dropdown-menu">
           <li>
-            <a className="dropdown-item" href="#">Clientes</a>
+            <Link className="dropdown-item" to="/admin/clients">Clientes</Link>
           </li>
           <li>
-            <Link className="dropdown-item" to="/menus">Menus</Link>
+            <Link className="dropdown-item" to="/admin/menus">Menus</Link>
           </li>
           <li>
-            <button className="dropdown-item" onClick={() => logOut()}>Cerrar Sesion</button>
+            <button className="dropdown-item" onClick={logOut}>Cerrar Sesion</button>
           </li>
         </ul>
         </li>
