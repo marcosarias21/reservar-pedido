@@ -5,17 +5,23 @@ const Clients = ({
   nombre, apellido, empresa, email, pedidos,
 }) => {
   const [userPedido, setUserPedido] = useState(false);
-  console.log(userPedido);
+  const [orderSortDate, setOrderSortDate] = useState([]);
+  useEffect(() => {
+    const latestData = pedidos?.sort(
+      (a, b) => new Date(b.hora).getTime() - new Date(a.hora).getTime(),
+    );
+    setOrderSortDate(latestData);
+  }, []);
   return (
-      <div className="card col-2">
+      <div className="card">
         <div className="card-body">
           <h5 className="card-title">Cliente: {nombre} {apellido}</h5>
           <p className="card-text">Mail: <span className="fw-bold">{email}</span></p>
           <p className="card-text">Empresa: <span className="fw-bold">{empresa}</span></p>
           <hr/>
-          <button type="button" onClick={() => setUserPedido(!userPedido)} className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Historial de pedidos:</button>
+          <button type="button" onClick={() => setUserPedido(!userPedido)} className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Historial de pedidos:</button>
           {
-            userPedido ? pedidos?.map(pedido => <ListOrder key={pedido.id} {...pedido} />)
+            userPedido ? orderSortDate?.map(pedido => <ListOrder key={pedido.id} {...pedido} />)
               : null
           }
         </div>
