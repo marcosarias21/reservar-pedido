@@ -5,13 +5,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MenuProvider } from './provider/MenuContext';
+import { SearchProvider } from './provider/SearchContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <MenuProvider>
+      <SearchProvider>
         <App />
+      </SearchProvider>
       </MenuProvider>
     </BrowserRouter>
   </React.StrictMode>,
