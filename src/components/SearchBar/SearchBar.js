@@ -1,4 +1,5 @@
 import { useSearchHandleContext } from '../../provider/SearchContext';
+import './searchbar.scss';
 
 const SearchBar = () => {
   const setSearchUser = useSearchHandleContext();
@@ -7,9 +8,8 @@ const SearchBar = () => {
   };
   return (
     <div className="container">
-      <form className="d-flex my-4" role="search">
-        <input className="form-control me-2" type="search" onChange={handleChange} placeholder="Search" aria-label="Search" />
-        <button className="btn btn-outline-success" type="submit">Search</button>
+      <form className="d-flex my-4 justify-content-center" role="search">
+        <input className="form-control searchbar me-2" type="search" onChange={handleChange} placeholder="Buscador de clientes" aria-label="Search" />
       </form>
     </div>
   );

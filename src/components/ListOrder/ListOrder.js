@@ -1,8 +1,9 @@
+import './listorder.scss';
+
 const ListOrder = ({ pedido, hora }) => {
-  console.log(pedido);
   return (
     <ul className="list-group">
-      <li className="list-group-item">{hora} - {pedido}</li>
+      <li className="list-group-item"> Dia: {hora} - Pedido: {pedido}</li>
     </ul>
   );
 };

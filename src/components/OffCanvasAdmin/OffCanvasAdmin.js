@@ -5,6 +5,7 @@ const OffCanvasAdmin = () => {
   const logOut = useLogout();
   return (
     <div className="offcanvas-body">
+        <Link className='text-primary text-decoration-none' to='/home'>Back Home</Link>
       <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle text-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Detalles</a>
@@ -21,10 +22,6 @@ const OffCanvasAdmin = () => {
         </ul>
         </li>
       </ul>
-      <form className="d-flex mt-3" role="search">
-        <input className="form-control me-2" type="search" placeholder="Buscar Cliente" aria-label="Search" />
-        <button className="btn btn-success" type="submit">Buscar</button>
-       </form>
     </div>
   );
 };

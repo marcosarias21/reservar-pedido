@@ -1,0 +1,11 @@
+.searchbar{
+  width: 30%;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-radius: 0px;
+  &:focus{
+    border: 2px solid blue($color: #000000);
+    box-shadow: none;
+   }
+}
