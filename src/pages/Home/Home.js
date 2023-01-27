@@ -10,12 +10,8 @@ const Home = () => {
   const getDataMenu = async () => {
     const resp = await fetch('http://localhost:8000/menu');
     const json = await resp.json();
-    if (json.menu.empresa === 'Ambos') {
-      setMenuData(json.menu);
-    } else {
-      const menuFiltered = json?.menu.filter(menu => menu.empresa === user.user.empresa);
-      setMenuData(menuFiltered);
-    }
+    const menuFiltered = json?.menu.filter(menu => user.user.empresa === menu.empresa || menu.empresa === 'Ambas');
+    setMenuData(menuFiltered);
   };
 
   useEffect(() => {

@@ -32,6 +32,7 @@ const Menus = ({ imagen, nombre }) => {
       });
     }
   };
+
   useEffect(() => {
     const date = new Date();
     setData({
@@ -46,7 +47,7 @@ const Menus = ({ imagen, nombre }) => {
       <img src={imagen} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-title">{nombre}</h5>
-        <button onClick={addProduct} className="btn btn-primary">Go somewhere</button>
+        <button onClick={addProduct} className="btn btn-primary">Reservar pedido</button>
       </div>
     </div>
   );
