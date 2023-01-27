@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import './menus.scss';
 
 const Menus = ({ imagen, nombre }) => {
   const user = JSON.parse(localStorage.getItem('User'));
@@ -43,11 +44,11 @@ const Menus = ({ imagen, nombre }) => {
   }, [data.nuevoPedido]);
 
   return (
-    <div className="card col-4">
+    <div className="card col-2 mt-5">
       <img src={imagen} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-title">{nombre}</h5>
-        <button onClick={addProduct} className="btn btn-primary">Reservar pedido</button>
+        <button onClick={addProduct} className="btn btn-success">Reservar pedido</button>
       </div>
     </div>
   );

@@ -38,7 +38,7 @@ const ModalForm = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="recipient-name" className="col-form-label">Imagen del menu:</label>
-                <input type="text" className="form-control" placeholder='Ingrese la url de una imagen' id="recipient-name" {...register('imagen')} />
+                <input type="text" className="form-control" placeholder='Ingrese la url de una imagen. Ej: https://...' id="recipient-name" {...register('imagen')} />
               </div>
               <div className="mb-3">
               <select className="form-select form-select-lg mt-4" aria-label="Default select example" {...register('empresa')}>
