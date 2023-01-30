@@ -44,11 +44,11 @@ const Menus = ({ imagen, nombre }) => {
   }, [data.nuevoPedido]);
 
   return (
-    <div className="card col-2 mt-5">
-      <img src={imagen} className="card-img-top" alt="..." />
+    <div className="card col-3 mt-5 mx-1">
+      <img src={imagen} className="card-img-top pt-2" alt="..." />
       <div className="card-body">
         <h5 className="card-title">{nombre}</h5>
-        <button onClick={addProduct} className="btn btn-success">Reservar pedido</button>
+        <button onClick={addProduct} className="btn btn-outline-primary ">Reservar pedido</button>
       </div>
     </div>
   );
