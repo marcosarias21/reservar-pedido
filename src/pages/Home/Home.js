@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <>
     <Nabvar user={user?.user} />
-    <section className='row'>
+    <section className='row justify-content-center'>
       {
         menuData?.map(menu => <Menus key={menu.id} {...menu} />)
       }

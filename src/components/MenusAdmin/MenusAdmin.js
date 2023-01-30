@@ -67,9 +67,9 @@ const MenusAdmin = ({ nombre, empresa, _id }) => {
             </select>
           </td>
           <td className='col-3'>
-            <button className="btn btn-primary" onClick={() => setEdit(!edit)}><MdEdit /></button>
-            <button type='submit' className="btn btn-success mx-1" onClick={handleSubmit(handleMenu)}><MdSave /></button>
-            <button className="btn btn-danger" onClick={handleSubmit(deleteMenu)}><MdDelete /></button>
+            <button className="btn btn-primary" title='Editar menu' onClick={() => setEdit(!edit)}><MdEdit /></button>
+            <button type='submit' className="btn btn-success mx-1" title='Guardar cambios' onClick={handleSubmit(handleMenu)}><MdSave /></button>
+            <button className="btn btn-danger" title='Eliminar menu' onClick={handleSubmit(deleteMenu)}><MdDelete /></button>
           </td>
         </tr>
       </tbody>
