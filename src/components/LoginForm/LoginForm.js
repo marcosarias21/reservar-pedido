@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import './loginform.scss';
 
@@ -40,8 +40,9 @@ const LoginForm = () => {
         <input type="password" className="form-control" id="floatingPassword" placeholder="Password" {...register('password')} />
         <label htmlFor="floatingPassword">Password</label>
       </div>
-      <div className='d-flex justify-content-center my-3'>
+      <div className='d-flex flex-column justify-content-center my-3'>
         <button type='submit' className='btn btn-primary w-100 px-5 py-3 fw-bold text-center'>Loguearse</button>
+        <Link className='text-center mt-3' to='/register'> No tenes cuenta? Registrate!</Link>
       </div>
     </form>
   );
