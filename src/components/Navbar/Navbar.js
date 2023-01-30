@@ -1,21 +1,19 @@
-import { OffCanvasAdmin } from '../OffCanvasAdmin';
-import { OffCanvasUser } from '../OffCanvasUser';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = ({ user }) => {
   return (
-    <nav className="navbar navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
-        <span className="navbar-brand" href="#">{user?.rol}: {user?.nombre} {user?.apellido} </span>
-        <span className="navbar-brand" href="#">Empresa: {user?.empresa} </span>
-        <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+        <a className="navbar-brand fw-bold" href="/#">Navbar</a>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="offcanvas offcanvas-end text-bg-light" tabIndex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-          <div className="offcanvas-header">
-            <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">{user?.nombre} {user?.apellido}</h5>
-            <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          {user?.rol === 'Cliente' ? <OffCanvasUser /> : <OffCanvasAdmin /> }
+        <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+          <ul className="navbar-nav mb-2 mb-lg-0">
+            <li className="nav-item">
+              <NavLink className="nav-link active" aria-current="page" href="/home">Home</NavLink>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
