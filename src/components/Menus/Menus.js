@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import './menus.scss';
 
 const Menus = ({ imagen, nombre }) => {
+  const [confirmOrder, setConfirmOrder] = useState(false);
   const user = JSON.parse(localStorage.getItem('User'));
   const [data, setData] = useState({
     id: '',
@@ -19,10 +20,11 @@ const Menus = ({ imagen, nombre }) => {
       },
     });
     const json = await resp.json();
+    console.log(json.nuevoPedido);
     if (resp.ok) {
       Swal.fire(
-        'Success!',
-        'Reservaste un pedido!',
+        'Confirmado!',
+        `Reservaste ${json.nuevoPedido}`,
         'success',
       );
     } else {
@@ -48,7 +50,12 @@ const Menus = ({ imagen, nombre }) => {
       <img src={imagen} className="card-img-top pt-2" alt="..." />
       <div className="card-body">
         <h5 className="card-title">{nombre}</h5>
-        <button onClick={addProduct} className="btn btn-outline-primary ">Reservar pedido</button>
+        <button onClick={() => setConfirmOrder(!confirmOrder)} className="btn btn-outline-primary ">Reservar pedido</button>
+        {confirmOrder ? <div className='d-flex flex-column'>
+                          <h5 className='text-dark'>Estas por reservar {nombre}</h5>
+                          <button className='btn btn-danger mb-2' onClick={() => setConfirmOrder(false)}>Cancelar</button>
+                          <button className='btn btn-success' onClick={addProduct}>Confirmar</button>
+                        </div> : null}
       </div>
     </div>
   );
