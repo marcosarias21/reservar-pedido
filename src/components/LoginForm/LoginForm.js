@@ -33,11 +33,11 @@ const LoginForm = () => {
     <form onSubmit={handleSubmit(onSubmit)} className='login-form'>
       <h4 className='text-center mt-3 mb-5 fw-bold'>Login</h4>
       <div className="form-floating mb-3">
-        <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" {...register('email')} />
+        <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" {...register('email')} required/>
         <label htmlFor="floatingInput">Email address</label>
       </div>
       <div className="form-floating">
-        <input type="password" className="form-control" id="floatingPassword" placeholder="Password" {...register('password')} />
+        <input type="password" className="form-control" id="floatingPassword" placeholder="Password" {...register('password')} required/>
         <label htmlFor="floatingPassword">Password</label>
       </div>
       <div className='d-flex flex-column justify-content-center my-3'>

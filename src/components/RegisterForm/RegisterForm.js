@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 import './registerform.scss';
 
 const RegisterForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
     const resp = await fetch('http://localhost:8000/users', {
@@ -20,7 +20,7 @@ const RegisterForm = () => {
         'Usuario creado correctamente!',
         'success',
       );
-      setTimeout(() => { window.location.href = './login'; }, 1000);
+      setTimeout(() => { window.location.href = '/'; }, 1000);
     } else {
       Swal.fire({
         icon: 'error',
@@ -34,7 +34,7 @@ const RegisterForm = () => {
         <h4 className='text-center mt-3 mb-5 fw-bold'>Registro</h4>
         <div className='d-flex justify-content-center mb-3'>
           <div className='form-floating me-3'>
-            <input type="text" className="form-control" id="floatingName" {...register('nombre')} placeholder="Nombre" required />
+            <input type="text" className="form-control" id="floatingName" {...register('nombre', { required: true })} maxLength='25' placeholder="Nombre" required />
             <label htmlFor="floatingName">Nombre</label>
           </div>
           <div className='form-floating'>
@@ -50,7 +50,7 @@ const RegisterForm = () => {
           <input type="password" className="form-control" id="floatingPassword" {...register('password')} placeholder="Password" required />
           <label htmlFor="floatingPassword">Password</label>
         </div>
-        <select className="form-select form-select-lg mt-4" aria-label="Default select example" {...register('empresa')}>
+        <select className="form-select form-select-md mt-4" aria-label="Default select example" {...register('empresa')} required>
           <option selected disabled>Empresa</option>
           <option value="Refinor">Refinor</option>
           <option value="Ypf">Ypf</option>
