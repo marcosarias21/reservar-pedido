@@ -9,7 +9,7 @@ const DropdownUser = ({ user }) => {
         {user.nombre} {user.apellido}
       </button>
       <ul className="dropdown-menu">
-        <li><Link className="dropdown-item">Mis pedidos</Link></li>
+        <li><Link className="dropdown-item" to='/pedidos'>Mis pedidos</Link></li>
         <li><hr className="dropdown-divider"/></li>
         <li><a className="dropdown-item" onClick={logOut}>Cerrar Sesion</a></li>
       </ul>
