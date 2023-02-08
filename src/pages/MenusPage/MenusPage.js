@@ -24,17 +24,15 @@ const MenusPage = () => {
     <Nabvar user={user} />
     <table className='table' ref={tableRef}>
         <thead>
-        <tr>
-              <th className='fw-bold ps-3 py-3'>ID</th>
-              <th className='fw-bold ps-3 py-3'>Menu</th>
-              <th className='fw-bold ps-3 py-3'>Empresa</th>
-              <th></th>
-            </tr>
+          <tr>
+            <th className='fw-bold ps-3 py-3'>ID</th>
+            <th className='fw-bold ps-3 py-3'>Menu</th>
+            <th className='fw-bold ps-3 py-3'>Empresa</th>
+          </tr>
         </thead>
-
-      {
-        allMenu?.map(menu => <MenusAdmin key={menu.id} {...menu} tableRef={tableRef} />)
-      }
+        {
+          allMenu?.map(menu => <MenusAdmin key={menu.id} {...menu} tableRef={tableRef} />)
+        }
     </table>
     <div className='d-flex justify-content-center'>
       <ModalForm />
