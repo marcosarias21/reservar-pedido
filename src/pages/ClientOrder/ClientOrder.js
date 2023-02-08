@@ -1,24 +1,24 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Nabvar } from '../../components/Navbar';
 import { ListOrder } from '../../components/ListOrder';
 
 const ClientOrder = () => {
   const { user } = JSON.parse(localStorage.getItem('User'));
+  const [order, setOrder] = useState([]);
   const getOrderClient = async () => {
     const resp = await fetch(`http://localhost:8000/users/${user.email}`);
     const json = await resp.json();
-    console.log(json);
+    setOrder(json.user.pedidos);
   };
 
   useEffect(() => {
     getOrderClient();
   }, []);
-  console.log(user.pedidos);
   return (
     <>
     <Nabvar user={user} />
     {
-      user?.pedidos?.map(pedido => <ListOrder {...pedido} key={pedido.id} />)
+      order?.map(pedido => <ListOrder {...pedido} key={pedido.id} />)
     }
     </>
   );
