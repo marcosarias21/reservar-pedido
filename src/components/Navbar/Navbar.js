@@ -5,7 +5,7 @@ import './navbar.scss';
 
 const Navbar = ({ user }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav className="navbar navbar-expand-lg nav-bg">
       <div className="container-fluid">
         <NavLink className="navbar-brand fw-bold nav-title" to="/home">Reserva tu Pedido</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +14,7 @@ const Navbar = ({ user }) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mb-2 mb-lg-0 mx-auto">
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/home">Home</NavLink>
+              <NavLink className="nav-link active fw-bold" aria-current="page" to="/home">Home</NavLink>
             </li>
           </ul>
           <div>
