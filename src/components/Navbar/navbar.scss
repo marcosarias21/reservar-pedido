@@ -1,5 +1,7 @@
+@import '../../styles/global.scss';
+
 .nav-bg{
-  background-color: #F4ECE1;
+  background-color: $background-color;
   .nav-title{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     cursor: pointer;
