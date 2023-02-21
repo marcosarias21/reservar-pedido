@@ -1,7 +1,9 @@
 import { useContext, useEffect } from 'react';
+import { Hero } from '../../components/Hero';
 import { Menus } from '../../components/Menus';
 import { Nabvar } from '../../components/Navbar';
 import menuContext from '../../provider/MenuContext';
+import './home.scss';
 
 const Home = () => {
   const { setMenuData, menuData } = useContext(menuContext);
@@ -21,6 +23,9 @@ const Home = () => {
   return (
     <>
     <Nabvar user={user?.user} />
+    <section className='hero'>
+      <Hero />
+    </section>
     <section className='row justify-content-center'>
       {
         menuData?.map(menu => <Menus key={menu.id} {...menu} />)

@@ -1,0 +1,33 @@
+@import '../../styles/global.scss';
+.hero-section{
+  height: 93vh;
+  background-color: $background-color;
+  div{
+    span{
+      font-size: 2rem;
+      font-weight: bolder;
+      color: #2F2F2F;
+    }
+    div{
+      h5{
+        color: #C3C0BB;
+        font-family: cursive;
+      }
+      button{
+        background-color: #2F2F2F;
+        color: #fff;
+        border-radius: 100px;
+        box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.75);
+      }
+    }
+  }
+  .text-color-title{
+    color: #FF7E00;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 6rem;
+    letter-spacing: 2px;
+  }
+  .img-hero{
+    height: 100%;
+  }
+}
