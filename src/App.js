@@ -5,6 +5,7 @@ import { Login } from './pages/Login';
 import { MenusPage } from './pages/MenusPage';
 import { AdminClients } from './pages/AdminClients';
 import { ClientOrder } from './pages/ClientOrder';
+import MenuList from './pages/MenuList/MenuList';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path='/' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/home' element={<Home />} />
+        <Route path='/menus' element={<MenuList />} />
         <Route path='/admin/menus' element={<MenusPage />} />
         <Route path='/admin/clients' element={<AdminClients />} />
         <Route path='/pedidos' element={<ClientOrder />} />

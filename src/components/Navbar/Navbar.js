@@ -5,7 +5,7 @@ import './navbar.scss';
 
 const Navbar = ({ user }) => {
   return (
-    <nav className="navbar navbar-expand-lg nav-bg py-3">
+    <nav className="navbar navbar-expand-lg nav-bg py-3 fixed-top">
       <div className="container-fluid container">
         <NavLink className="navbar-brand fw-bold nav-title" to="/home">Reserva tu Pedido</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
