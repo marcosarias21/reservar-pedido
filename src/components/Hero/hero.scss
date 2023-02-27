@@ -1,6 +1,6 @@
 @import '../../styles/global.scss';
 .hero-section{
-  height: 93vh;
+  height: 100vh;
   background-color: $background-color;
   div{
     span{
@@ -9,9 +9,10 @@
       color: #2F2F2F;
     }
     div{
-      h5{
+      h6{
         color: #C3C0BB;
         font-family: cursive;
+        letter-spacing: 1.5px;
       }
       button{
         background-color: #2F2F2F;
@@ -28,6 +29,7 @@
     letter-spacing: 2px;
   }
   .img-hero{
+    margin-right: 300px;
     height: 100%;
   }
 }

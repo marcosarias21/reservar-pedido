@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import backgroundImg from '../../assets/images/backgroundimage.png';
 import './hero.scss';
 
 const Hero = () => {
   return (
-    <div className="row hero-section">
+    <div className="row hero-section gx-0">
       <div className="col-6 d-flex flex-column justify-content-center align-items-center px-5">
         <div className='w-50'>
           <div className="d-flex">
@@ -14,14 +15,14 @@ const Hero = () => {
             </div>
           </div>
           <div className='d-flex flex-column mt-2'>
-            <h5 className='fw-bold'>Hace la reserva de tu pedido en pocos clicks</h5>
+            <h6 className='fw-bold'>Hace la reserva de tu pedido en pocos clicks</h6>
               <div className='mt-4'>
-                <button className='btn py-3 px-4 fw-bold'> Reserva Ahora</button>
+                <button className='btn py-3 px-4 fw-bold'><Link to='/menus' className='text-decoration-none '>Reserva Ahora</Link></button>
               </div>
           </div>
         </div>
       </div>
-      <div className="col-6">
+      <div className="col-6 d-flex justify-content-center align-items-center">
         <img className='img-hero' src={backgroundImg} />
       </div>
     </div>
