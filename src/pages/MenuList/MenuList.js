@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import { Menus } from '../../components/Menus';
 import { Nabvar } from '../../components/Navbar';
 import menuContext from '../../provider/MenuContext';
+import './menulist.scss';
 
 const MenuList = () => {
   const { setMenuData, menuData } = useContext(menuContext);
@@ -21,11 +22,13 @@ const MenuList = () => {
 
   return (
     <>
-    <Nabvar user={user?.user} />
-    <section className='row justify-content-center'>
-      {
-        menuData?.map(menu => <Menus key={menu.id} {...menu} />)
-      }
+    <Nabvar user={user?.user} className='border-bottom nav-shadow' />
+    <section className='bg-light'>
+      <div className='container pt-5'>
+        {
+          menuData?.map(menu => <Menus key={menu.id} {...menu} />)
+        }
+      </div>
     </section>
     </>
   );

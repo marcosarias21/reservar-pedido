@@ -1,7 +1,22 @@
-.card-img-top{
-  height: 200px;
-  &:hover{
-    opacity: 0.5;
-    transition: 0.5s;
+@import '../../styles/global.scss';
+.card{
+  box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.75);
+  h5{
+    color: #162B54;
+  }
+  button{
+    background-color: #162B54;
+    border: 0;
+    padding: 10px 30px;
+    border-radius: 5px;
+    color: white;
+  }
+  .card-img-top{
+    height: 200px;
+    padding: 0px 10px;
+    &:hover{
+      opacity: 0.5;
+      transition: 0.5s;
+    }
   }
 }

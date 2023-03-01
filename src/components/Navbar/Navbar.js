@@ -3,9 +3,9 @@ import { DropdownAdmin } from '../DropdownAdmin';
 import { DropdownUser } from '../DropdownUser';
 import './navbar.scss';
 
-const Navbar = ({ user }) => {
+const Navbar = ({ user, className }) => {
   return (
-    <nav className="navbar navbar-expand-lg nav-bg py-3 fixed-top">
+    <nav className={`navbar navbar-expand-lg nav-bg py-3 ${className}`}>
       <div className="container-fluid container">
         <NavLink className="navbar-brand fw-bold nav-title" to="/home">Reserva tu Pedido</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,6 +15,9 @@ const Navbar = ({ user }) => {
           <ul className="navbar-nav mb-2 mb-lg-0 mx-auto">
             <li className="nav-item">
               <NavLink className="nav-link active fw-bold" aria-current="page" to="/home">Home</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link active fw-bold" aria-current="page" to="/menus">Menu</NavLink>
             </li>
           </ul>
           <div>
