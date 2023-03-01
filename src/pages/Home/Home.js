@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <>
-    <Nabvar user={user} />
+    <Nabvar user={user} className={'fixed-top enable-shadows'} />
     <section className='hero'>
       <Hero />
     </section>
