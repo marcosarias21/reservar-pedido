@@ -17,7 +17,7 @@ const Hero = () => {
           <div className='d-flex flex-column mt-2'>
             <h6 className='fw-bold'>Hace la reserva de tu pedido en pocos clicks</h6>
               <div className='mt-4'>
-                <button className='btn py-3 px-4 fw-bold'><Link to='/menus' className='text-decoration-none '>Reserva Ahora</Link></button>
+                <button className='btn btn-dark py-3 px-4 fw-bold'><Link to='/menus' className='text-decoration-none text-light '>Reserva Ahora</Link></button>
               </div>
           </div>
         </div>
