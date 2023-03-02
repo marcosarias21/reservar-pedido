@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Nabvar } from '../../components/Navbar';
-import { ListOrder } from '../../components/ListOrder';
 import { TableOrder } from '../../components/TableOrder';
 
 const ClientOrder = () => {
   const { user } = JSON.parse(localStorage.getItem('User'));
   const [historial, setHistorial] = useState([]);
   const getOrderClient = async () => {
-    const resp = await fetch(`http://localhost:8000/users/${user.email}`);
+    const resp = await fetch(`http://localhost:8000/users/cl/${user.email}`);
     const json = await resp.json();
     setHistorial(json.user.pedidos);
   };

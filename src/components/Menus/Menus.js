@@ -20,7 +20,6 @@ const Menus = ({ imagen, nombre }) => {
       },
     });
     const json = await resp.json();
-    console.log(json);
     if (resp.ok) {
       Swal.fire(
         'Confirmado!',
