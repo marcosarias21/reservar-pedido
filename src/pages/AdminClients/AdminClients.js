@@ -8,7 +8,6 @@ const AdminClients = () => {
   const { user } = JSON.parse(localStorage.getItem('User'));
   const [clients, setClients] = useState([]);
   const searchUser = useSearch();
-  console.log(searchUser);
 
   const getClients = async () => {
     const resp = await fetch('http://localhost:8000/users');
@@ -17,9 +16,8 @@ const AdminClients = () => {
   };
 
   const searchClient = async () => {
-    const resp = await fetch(`http://localhost:8000/users/?:${searchUser}`);
+    const resp = await fetch(`http://localhost:8000/users/${searchUser}`);
     const json = await resp.json();
-    console.log(json);
     if (json.result) {
       setClients(json.result);
     } else if (json.users) {
