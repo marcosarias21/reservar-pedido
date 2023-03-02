@@ -17,7 +17,7 @@ const AdminClients = () => {
   };
 
   const searchClient = async () => {
-    const resp = await fetch(`http://localhost:8000/users/${searchUser}`);
+    const resp = await fetch(`http://localhost:8000/users/?:${searchUser}`);
     const json = await resp.json();
     console.log(json);
     if (json.result) {
