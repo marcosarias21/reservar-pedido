@@ -36,7 +36,7 @@ const AdminClients = () => {
     <>
       <Nabvar user={user} />
       <SearchBar />
-      <section className='row justify-content-center mt-4'>
+      <section className='row justify-content-center mt-4 gap-2'>
         {
           clients?.map(client => <Clients key={client.id} {...client} />)
         }
