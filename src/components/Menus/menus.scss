@@ -1,10 +1,11 @@
 @import '../../styles/global.scss';
 .card{
   box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.75);
-  h5{
+  .card-title{
     color: #162B54;
+    font-weight: bold;
   }
-  button{
+  .btn-order{
     background-color: #162B54;
     border: 0;
     padding: 10px 30px;

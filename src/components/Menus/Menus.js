@@ -46,15 +46,17 @@ const Menus = ({ imagen, nombre }) => {
 
   return (
     <div className="card col-3 mt-5 mx-1">
-      <img src={imagen} className="card-img-top pt-2" alt="..." />
+      <img src={imagen} className="card-img-top pt-2" alt="imagen" />
       <div className="card-body">
         <h5 className="card-title">{nombre}</h5>
-        <button onClick={() => setConfirmOrder(!confirmOrder)}>Reservar pedido</button>
-        {confirmOrder ? <div className='d-flex flex-column'>
-                          <h5 className='text-dark'>Estas por reservar {nombre}</h5>
-                          <button className='btn btn-danger mb-2' onClick={() => setConfirmOrder(false)}>Cancelar</button>
-                          <button className='btn btn-success' onClick={addProduct}>Confirmar</button>
-                        </div> : null}
+        <button className='btn-order' onClick={() => setConfirmOrder(!confirmOrder)}>Reservar pedido</button>
+        {confirmOrder
+          ? <div className='d-flex flex-column'>
+              <h5 className='text-dark'>Estas por reservar {nombre}</h5>
+              <button className='btn btn-danger mb-2' onClick={() => setConfirmOrder(false)}>Cancelar</button>
+              <button className='btn btn-success' onClick={addProduct}>Confirmar</button>
+            </div>
+          : null}
       </div>
     </div>
   );
