@@ -1,4 +1,5 @@
 import { useContext, useEffect } from 'react';
+import { Carousel } from '../../components/Carousel';
 import { Menus } from '../../components/Menus';
 import { Nabvar } from '../../components/Navbar';
 import menuContext from '../../provider/MenuContext';
@@ -23,6 +24,9 @@ const MenuList = () => {
   return (
     <>
     <Nabvar user={user?.user} className='nav-opacity' />
+    <section className='mt-5 pt-5'>
+      <Carousel />
+    </section>
     <section className='bg-light'>
       <div className='container pt-5'>
         {

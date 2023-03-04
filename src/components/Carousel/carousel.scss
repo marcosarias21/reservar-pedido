@@ -1,0 +1,23 @@
+.carousel-item{
+  height: auto;
+  .card-carousel{
+    border: 0 !important;
+    padding: 0px 200px;
+    flex-direction: row !important;
+    .card-img-top{
+      height: 400px !important;
+      width: auto;
+    }
+  }
+}
+
+.carousel-control-prev{
+  span{
+    background-color: rgb(134, 133, 133);
+  }
+  }
+.carousel-control-next{
+  span{
+    background-color: rgb(134, 133, 133);
+  }
+}
