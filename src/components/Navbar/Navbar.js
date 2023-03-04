@@ -1,13 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import { DropdownAdmin } from '../DropdownAdmin';
 import { DropdownUser } from '../DropdownUser';
+import gorritoIcono from '../../assets/images/cocinero.png';
 import './navbar.scss';
 
 const Navbar = ({ user, className }) => {
   return (
     <nav className={`navbar navbar-expand-lg nav-bg py-3 ${className}`}>
       <div className="container-fluid container">
-        <NavLink className="navbar-brand fw-bold nav-title" to="/home">Reserva tu Pedido</NavLink>
+        <div>
+          <img src={gorritoIcono} className='size-icon' />
+          <NavLink className="navbar-brand fw-bold nav-title" to="/home">Reserva tu Pedido</NavLink>
+        </div>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

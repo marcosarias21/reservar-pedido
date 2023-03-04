@@ -22,7 +22,7 @@ const MenuList = () => {
 
   return (
     <>
-    <Nabvar user={user?.user} className='border-bottom nav-shadow' />
+    <Nabvar user={user?.user} className='nav-opacity' />
     <section className='bg-light'>
       <div className='container pt-5'>
         {
