@@ -24,14 +24,18 @@ const MenuList = () => {
   return (
     <>
     <Nabvar user={user?.user} className='nav-opacity' />
-    <section className='mt-5 pt-5'>
+    <section className='mt-5 pt-5 section-carousel'>
       <Carousel />
     </section>
-    <section className='bg-light'>
-      <div className='container pt-5'>
-        {
-          menuData?.map(menu => <Menus key={menu.id} {...menu} />)
-        }
+    <section className='section-menu pt-5'>
+      <div className='container-fluid'>
+        <div className='row justify-content-center gx-0'>
+          <span className='text-center text-success'>Nuestros Platos</span>
+          <h3 className='text-center color fw-bold'>Platos Populares</h3>
+          {
+            menuData?.map(menu => <Menus key={menu.id} {...menu} />)
+          }
+        </div>
       </div>
     </section>
     </>

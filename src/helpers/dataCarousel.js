@@ -1,6 +1,6 @@
-import pollo from '../assets/images/platopollo.jpg';
-import milanesa from '../assets/images/milanesas.jfif';
-import pastas from '../assets/images/pastas.jpg';
+import pollo from '../assets/images/pollo.png';
+import milanesa from '../assets/images/milanesa.png';
+import carne from '../assets/images/carnehorno.png';
 
 export const dataFood = [
   {
@@ -21,9 +21,9 @@ export const dataFood = [
   },
   {
     subtitle: 'Nuestra Especialidad',
-    nameFood: 'Pastas Caseras',
+    nameFood: 'Carne al Horno',
     description: 'lorem10lorem10lorem10lorem10lorem10lorem10lorem10',
-    image: pastas,
+    image: carne,
     active: '',
     link: '',
   },

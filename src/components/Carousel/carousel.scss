@@ -1,23 +1,65 @@
+@import '../../styles/global.scss';
 .carousel-item{
-  height: auto;
+  height: 70vh;
   .card-carousel{
-    border: 0 !important;
-    padding: 0px 200px;
+    border: 0px !important;
+    height: 100%;
+    padding: 0px 400px;
     flex-direction: row !important;
-    .card-img-top{
-      height: 400px !important;
-      width: auto;
+    .color-main{
+      color: $main-color;
     }
+    .button-main{
+      background-color: $main-color;
+      color: #fff;
+    }
+   
   }
 }
 
 .carousel-control-prev{
   span{
-    background-color: rgb(134, 133, 133);
+    background-color: #87858536;
   }
   }
 .carousel-control-next{
   span{
-    background-color: rgb(134, 133, 133);
+    background-color: #87858536;
+  }
+}
+
+@media (min-width:320px) and (max-width: 500px) {
+  .carousel-item{
+    height: auto;
+    .card-carousel{
+      padding: 0px;
+      .img-carousel{
+        max-width: 100%;
+        max-height: 414px;
+      }
+    }
+  }
+}
+
+@media (min-width:500px) and (max-width: 900px) {
+  .carousel-item{
+    height: auto;
+    .card-carousel{
+      padding: 0px 0px;
+      .img-carousel{
+        height: 100%;
+        text-align: center;
+        max-height: 580px;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width:901px) and (max-width: 1440px) {
+  .carousel-item{
+    .card-carousel{
+      padding: 0px 0px;
+    }
   }
 }
