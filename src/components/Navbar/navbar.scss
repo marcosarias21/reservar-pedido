@@ -7,4 +7,27 @@
   .nav-title{
     cursor: pointer;
 }
+  .nav-link{
+    position: relative;
+    &::after{
+      content: "";
+      height: 2px;
+      transition: all 0.2s;
+      opacity: 0;
+      width: 100%;
+      background-color: $main-color;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    &:hover::after{
+      opacity: 1;
+    }
+  }
+  .active{
+    border-bottom: 2px solid $main-color;
+    width: 100%;
+    transition: all 0.2s;
+    font-size: large;
+  } 
 }
