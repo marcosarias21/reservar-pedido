@@ -25,10 +25,9 @@ const MenusPage = () => {
     <Nabvar user={user} />
     <table className='table' ref={tableRef}>
         <thead>
-          <tr>
-            <th className='fw-bold ps-3 py-3'>ID</th>
-            <th className='fw-bold ps-3 py-3'>Menu</th>
-            <th className='fw-bold ps-3 py-3'>Empresa</th>
+          <tr className='row gx-0'>
+            <th className='fw-bold col-6 col-lg-8 ps-3 py-3'>Menu</th>
+            <th className='fw-bold col-6 col-lg-3 ps-3 py-3'>Empresa</th>
           </tr>
         </thead>
         {

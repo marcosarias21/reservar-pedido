@@ -1,6 +1,5 @@
 @import '../../styles/global.scss';
 .carousel-item{
-    padding: 0px 200px; 
     height: auto;
   .card-carousel{
     border: 0px !important;
@@ -32,24 +31,23 @@
   }
 }
 
-@media (min-width:320px) and (max-width: 500px) {
+@media (min-width:320px) and (max-width: 750px) {
   .carousel-item{
     height: auto;
     .card-carousel{
       padding: 0px;
       .card-body{
-        padding: 0px 20px;
-        align-items: normal !important;
+        padding: 0px 0px;
       }
       .img-carousel{
         max-width: 100%;
-        max-height: 314px;
+        height: 314px;
       }
     }
   }
 }
 
-@media (min-width:501px) and (max-width: 1000px) {
+@media (min-width: 776px) and (max-width: 1000px) {
   .carousel-item{
     height: auto;
     .card-carousel{
