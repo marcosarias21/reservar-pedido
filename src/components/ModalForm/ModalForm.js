@@ -1,28 +1,33 @@
-import { useForm } from 'react-hook-form';
+/* eslint-disable max-len */
+import { useEffect, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import Select from 'react-select';
 import Swal from 'sweetalert2';
 import { optionsCompany } from '../../helpers/optionsCompany';
 import { optiosMenu } from '../../helpers/optionsMenu';
 import { SelectOptions } from '../SelectOptions';
 
 const ModalForm = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, control } = useForm();
+  const [option, setOption] = useState('');
 
   const createMenu = async (data) => {
-    const resp = await fetch('http://localhost:8000/menu', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const json = await resp.json();
-    if (resp.ok) {
-      Swal.fire(
-        'Success!',
-        json.message,
-        'success',
-      );
-    }
+    console.log(data);
+    // const resp = await fetch('http://localhost:8000/menu', {
+    //   method: 'POST',
+    //   body: JSON.stringify(data),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // });
+    // const json = await resp.json();
+    // if (resp.ok) {
+    //   Swal.fire(
+    //     'Success!',
+    //     json.message,
+    //     'success',
+    //   );
+    // }
   };
 
   return (
@@ -43,11 +48,19 @@ const ModalForm = () => {
                 <label htmlFor="recipient-name" className="col-form-label">Imagen del menu:</label>
                 <input type="text" className="form-control" placeholder='Ingrese la url de una imagen. Ej: https://...' id="recipient-name" {...register('imagen')} />
               </div>
-              <div className="mb-3">
-                <SelectOptions options={optiosMenu} register={register} type='type' selectDesc='Tipo de menu' />
+              <div className='mb-3'>
+                <label htmlFor='type'>Tipo de menu:</label>
+                <Controller name="type" control={control} defaultValue="" render={({ field }) => (
+                    <Select options={optiosMenu} value={optiosMenu.value} onChange={(e) => field.onChange(e?.value)} />
+                )}
+                />
               </div>
-              <div className="mb-3">
-                <SelectOptions options={optionsCompany} register={register} type='empresa' selectDesc='Empresa' />
+              <div>
+              <label htmlFor='type'>Para que empresa:</label>
+                <Controller name="empresa" control={control} defaultValue="" render={({ field }) => (
+                    <Select options={optionsCompany} value={optionsCompany.value} onChange={(e) => field.onChange(e?.value)} />
+                )}
+                />
               </div>
             </form>
           </div>
