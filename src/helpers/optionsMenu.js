@@ -1,11 +1,14 @@
 export const optiosMenu = [
   {
-    option: 'Carnes',
+    label: 'Carnes',
+    value: 'carnes',
   },
   {
-    option: 'Pastas',
+    label: 'Pastas',
+    value: 'pastas',
   },
   {
-    option: 'Veganos',
+    label: 'Vegano',
+    value: 'vegano',
   },
 ];
