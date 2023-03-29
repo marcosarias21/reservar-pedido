@@ -8,6 +8,7 @@ const MenusPage = () => {
   const { user } = JSON.parse(localStorage.getItem('User'));
   const tableRef = useRef();
   const [allMenu, setAllMenu] = useState([]);
+  console.log(allMenu);
 
   const getAllMenus = async () => {
     const resp = await fetch('http://localhost:8000/menu');
@@ -18,7 +19,7 @@ const MenusPage = () => {
   useEffect(() => {
     if (user.rol !== 'Admin') window.location.href = '/home';
     getAllMenus();
-  }, [allMenu]);
+  }, [allMenu.length]);
 
   return (
     <>

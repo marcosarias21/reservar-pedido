@@ -1,6 +1,8 @@
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import { optionsCompany } from '../../helpers/optionsCompany';
+import { optiosMenu } from '../../helpers/optionsMenu';
+import { SelectOptions } from '../SelectOptions';
 
 const ModalForm = () => {
   const { register, handleSubmit } = useForm();
@@ -42,12 +44,10 @@ const ModalForm = () => {
                 <input type="text" className="form-control" placeholder='Ingrese la url de una imagen. Ej: https://...' id="recipient-name" {...register('imagen')} />
               </div>
               <div className="mb-3">
-              <select className="form-select form-select-md mt-4" aria-label="Default select example" {...register('empresa')}>
-                <option selected disabled>Empresa</option>
-                <option value="Refinor">Refinor</option>
-                <option value="Ypf">Ypf</option>
-                <option value="Ambas">Ambas</option>
-              </select>
+                <SelectOptions options={optiosMenu} register={register} type='type' selectDesc='Tipo de menu' />
+              </div>
+              <div className="mb-3">
+                <SelectOptions options={optionsCompany} register={register} type='empresa' selectDesc='Empresa' />
               </div>
             </form>
           </div>
