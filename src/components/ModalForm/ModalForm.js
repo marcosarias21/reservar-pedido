@@ -1,33 +1,28 @@
-/* eslint-disable max-len */
-import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import Select from 'react-select';
 import Swal from 'sweetalert2';
 import { optionsCompany } from '../../helpers/optionsCompany';
 import { optiosMenu } from '../../helpers/optionsMenu';
-import { SelectOptions } from '../SelectOptions';
 
 const ModalForm = () => {
   const { register, handleSubmit, control } = useForm();
-  const [option, setOption] = useState('');
 
   const createMenu = async (data) => {
-    console.log(data);
-    // const resp = await fetch('http://localhost:8000/menu', {
-    //   method: 'POST',
-    //   body: JSON.stringify(data),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // });
-    // const json = await resp.json();
-    // if (resp.ok) {
-    //   Swal.fire(
-    //     'Success!',
-    //     json.message,
-    //     'success',
-    //   );
-    // }
+    const resp = await fetch('http://localhost:8000/menu', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const json = await resp.json();
+    if (resp.ok) {
+      Swal.fire(
+        'Success!',
+        json.message,
+        'success',
+      );
+    }
   };
 
   return (
@@ -51,14 +46,16 @@ const ModalForm = () => {
               <div className='mb-3'>
                 <label htmlFor='type'>Tipo de menu:</label>
                 <Controller name="type" control={control} defaultValue="" render={({ field }) => (
-                    <Select options={optiosMenu} value={optiosMenu.value} onChange={(e) => field.onChange(e?.value)} />
+                    <Select options={optiosMenu} value={optiosMenu.value}
+                      onChange={(e) => field.onChange(e?.value)} />
                 )}
                 />
               </div>
               <div>
               <label htmlFor='type'>Para que empresa:</label>
                 <Controller name="empresa" control={control} defaultValue="" render={({ field }) => (
-                    <Select options={optionsCompany} value={optionsCompany.value} onChange={(e) => field.onChange(e?.value)} />
+                  <Select options={optionsCompany} value={optionsCompany.value}
+                    onChange={(e) => field.onChange(e?.value)} />
                 )}
                 />
               </div>
