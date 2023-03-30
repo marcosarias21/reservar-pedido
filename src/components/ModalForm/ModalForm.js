@@ -1,30 +1,12 @@
 import { Controller, useForm } from 'react-hook-form';
 import Select from 'react-select';
-import Swal from 'sweetalert2';
 import { optionsCompany } from '../../helpers/optionsCompany';
 import { optiosMenu } from '../../helpers/optionsMenu';
+import useCreateMenu from '../../hooks/useCreateMenu';
 
 const ModalForm = () => {
   const { register, handleSubmit, control } = useForm();
-
-  const createMenu = async (data) => {
-    const resp = await fetch('http://localhost:8000/menu', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const json = await resp.json();
-    if (resp.ok) {
-      Swal.fire(
-        'Success!',
-        json.message,
-        'success',
-      );
-    }
-  };
-
+  const createMenu = useCreateMenu();
   return (
     <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog">

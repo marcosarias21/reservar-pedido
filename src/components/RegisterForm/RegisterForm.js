@@ -1,34 +1,10 @@
 import { useForm } from 'react-hook-form';
-import Swal from 'sweetalert2';
+import useRegister from '../../hooks/useRegister';
 import './registerform.scss';
 
 const RegisterForm = () => {
   const { register, handleSubmit } = useForm();
-
-  const onSubmit = async (data) => {
-    const resp = await fetch('http://localhost:8000/users', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const json = await resp.json();
-    if (resp.ok) {
-      Swal.fire(
-        'Success!',
-        'Usuario creado correctamente!',
-        'success',
-      );
-      setTimeout(() => { window.location.href = '/'; }, 1000);
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: json.message,
-      });
-    }
-  };
+  const onSubmit = useRegister();
   return (
       <form onSubmit={handleSubmit(onSubmit)} className='form-bg'>
         <h4 className='text-center mt-3 mb-5 fw-bold'>Registro</h4>
