@@ -1,15 +1,15 @@
 export const optionsCompany = [
   {
     label: 'Refinor',
-    value: 'refinor',
+    value: 'Refinor',
   },
   {
     label: 'Ypf',
-    value: 'ypf',
+    value: 'Ypf',
 
   },
   {
     label: 'Ambas',
-    value: 'ambas',
+    value: 'Ambas',
   },
 ];

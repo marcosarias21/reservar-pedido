@@ -1,34 +1,11 @@
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
+import useLogin from '../../hooks/useLogin';
 import './loginform.scss';
 
 const LoginForm = () => {
   const { register, handleSubmit } = useForm();
-  const navigate = useNavigate();
-
-  const onSubmit = async (data) => {
-    const resp = await fetch('http://localhost:8000/login', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const json = await resp.json();
-    if (resp.ok) {
-      localStorage.setItem('User', JSON.stringify(json));
-      navigate('/home');
-      if (json.user.rol === 'admin') { navigate('/admin'); }
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: json.message,
-      });
-    }
-  };
-
+  const onSubmit = useLogin();
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='login-form'>
       <h4 className='text-center mt-3 mb-5 fw-bold'>Login</h4>

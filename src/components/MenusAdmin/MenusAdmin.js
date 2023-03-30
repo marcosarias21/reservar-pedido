@@ -1,50 +1,15 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { MdEdit, MdSave, MdDelete } from 'react-icons/md';
-import Swal from 'sweetalert2';
+import useDeleteMenu from '../../hooks/useDeleteMenu';
+import useHandleMenu from '../../hooks/useHandleMenu';
 import './menusadmin.scss';
 
 const MenusAdmin = ({ nombre, empresa, _id }) => {
   const { register, handleSubmit } = useForm();
   const [edit, setEdit] = useState(false);
-
-  const handleMenu = async (data) => {
-    const resp = await fetch('http://localhost:8000/menu', {
-      method: 'PUT',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const json = await resp.json();
-    if (resp.ok) {
-      Swal.fire(
-        'Success!',
-        'Usuario editado correctamente!',
-        'success',
-      );
-      window.location.reload();
-    }
-  };
-
-  const deleteMenu = async (data) => {
-    const resp = await fetch('http://localhost:8000/menu', {
-      method: 'DELETE',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const json = await resp.json();
-    if (resp.ok) {
-      Swal.fire(
-        'Success!',
-        json.message,
-        'success',
-      );
-      window.location.reload();
-    }
-  };
+  const handleMenu = useHandleMenu();
+  const deleteMenu = useDeleteMenu();
 
   return (
       <tbody>
