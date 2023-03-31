@@ -1,3 +1,7 @@
-.table-row{
-  width: 100vw;
+.border-table-body{
+  border-bottom: 1px solid #80808061;
+  .table-row{
+    width: 100vw;
+    border: transparent;
+  }
 }

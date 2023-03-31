@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { Carousel } from '../../components/Carousel';
+import { FilterMenu } from '../../components/FilterMenu';
 import { Menus } from '../../components/Menus';
 import { Nabvar } from '../../components/Navbar';
 import menuContext from '../../provider/MenuContext';
@@ -32,9 +33,16 @@ const MenuList = () => {
         <div className='row justify-content-center gx-0'>
           <span className='text-center text-success'>Nuestros Platos</span>
           <h3 className='text-center color fw-bold'>Platos Populares</h3>
-          {
-            menuData?.map(menu => <Menus key={menu.id} {...menu} />)
-          }
+        </div>
+        <div className='d-flex'>
+          <div>
+            <FilterMenu />
+          </div>
+          <div className='row'>
+            {
+              menuData?.map(menu => <Menus key={menu.id} {...menu} />)
+            }
+          </div>
         </div>
       </div>
     </section>
