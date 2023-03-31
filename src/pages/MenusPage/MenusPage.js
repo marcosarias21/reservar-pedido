@@ -27,8 +27,8 @@ const MenusPage = () => {
     <table className='table' ref={tableRef}>
         <thead>
           <tr className='row gx-0'>
-            <th className='fw-bold col-6 col-lg-8 ps-3 py-3'>Menu</th>
-            <th className='fw-bold col-6 col-lg-3 ps-3 py-3'>Empresa</th>
+            <th className='fw-bold col-6 col-sm-5 col-md-5 col-lg-6 ps-3 py-3'>Menu</th>
+            <th className='fw-bold col-6 col-sm-5 col-md-5 col-lg-5 ps-3 py-3'>Empresa</th>
           </tr>
         </thead>
         {

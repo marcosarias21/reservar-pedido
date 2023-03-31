@@ -19,16 +19,16 @@ const ModalForm = () => {
             <form>
               <div className="mb-3">
                 <label htmlFor="recipient-name" className="col-form-label">Nombre del menu:</label>
-                <input type="text" className="form-control" id="recipient-name" {...register('nombre')} />
+                <input type="text" className="form-control" id="recipient-name" {...register('nombre', { required: true })} />
               </div>
               <div className="mb-3">
                 <label htmlFor="recipient-name" className="col-form-label">Imagen del menu:</label>
-                <input type="text" className="form-control" placeholder='Ingrese la url de una imagen. Ej: https://...' id="recipient-name" {...register('imagen')} />
+                <input type="text" className="form-control" placeholder='Ingrese la url de una imagen. Ej: https://...' id="recipient-name" {...register('imagen', { required: true })} />
               </div>
               <div className='mb-3'>
                 <label htmlFor='type'>Tipo de menu:</label>
                 <Controller name="type" control={control} defaultValue="" render={({ field }) => (
-                    <Select options={optiosMenu} value={optiosMenu.value}
+                    <Select placeholder='Elige el tipo de menu...' options={optiosMenu} value={optiosMenu.value}
                       onChange={(e) => field.onChange(e?.value)} />
                 )}
                 />
@@ -36,14 +36,14 @@ const ModalForm = () => {
               <div>
               <label htmlFor='type'>Para que empresa:</label>
                 <Controller name="empresa" control={control} defaultValue="" render={({ field }) => (
-                  <Select options={optionsCompany} value={optionsCompany.value}
+                  <Select placeholder='Empresa...' options={optionsCompany} value={optionsCompany.value}
                     onChange={(e) => field.onChange(e?.value)} />
                 )}
                 />
               </div>
             </form>
           </div>
-          <div className="modal-footer">
+          <div className="modal-footer d-flex justify-content-between">
             <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
             <button type="submit" onClick={handleSubmit(createMenu)} className="btn btn-success">Crear Menu</button>
           </div>
