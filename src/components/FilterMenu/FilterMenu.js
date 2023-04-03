@@ -1,20 +1,28 @@
 import { useContext } from 'react';
 import menuContext from '../../provider/MenuContext';
+import './filtermenu.scss';
 
-const FilterMenu = () => {
-  const { setMenuData } = useContext(menuContext);
+const FilterMenu = ({ menuData }) => {
+  const { setFilteredMenu } = useContext(menuContext);
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+    const menuFilteredByType = menuData.filter(menu => menu.type === e.target.value);
+    if (menuFilteredByType.length === 0) {
+      setFilteredMenu(menuData);
+    } else {
+      setFilteredMenu(menuFilteredByType);
+    }
   };
-
   return (
-    <select className="form-select" aria-label="Default select example" onChange={handleChange}>
-      <option selected hidden>Filter Menu:</option>
-      <option value="Carnes">Carnes</option>
-      <option value="Pastas">Pastas</option>
-      <option value="Vegano">P/Veganos</option>
-    </select>
+    <div className='select-box'>
+      <select className="form-select w-100" aria-label="Default select example" onChange={handleChange}>
+        <option selected hidden>Filter Menu:</option>
+        <option value="">Todos</option>
+        <option value="carnes">Carnes</option>
+        <option value="pastas">Pastas</option>
+        <option value="vegano">P/Veganos</option>
+      </select>
+    </div>
   );
 };
 
