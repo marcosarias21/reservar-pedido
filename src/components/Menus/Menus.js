@@ -22,7 +22,7 @@ const Menus = ({ imagen, nombre }) => {
   }, [data.nuevoPedido]);
 
   return (
-    <div className="card col-sm-12 col-md-5 col-lg-3 col-xl-12 mt-3 mx-1">
+    <div className="card col-sm-12 col-md-5 col-lg-3 col-xl-5 mt-3 mx-1">
       <img src={imagen} className="card-img-top pt-2" alt="imagen" />
       <div className="card-body">
         <h5 className="card-title">{nombre}</h5>

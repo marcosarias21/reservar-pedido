@@ -7,7 +7,7 @@ import menuContext from '../../provider/MenuContext';
 import './menulist.scss';
 
 const MenuList = () => {
-  const { setMenuData, menuData } = useContext(menuContext);
+  const { setMenuData, menuData, filteredMenu } = useContext(menuContext);
   const user = JSON.parse(localStorage.getItem('User'));
   if (!user?.token) window.location.href = '/login';
 
@@ -34,13 +34,13 @@ const MenuList = () => {
           <span className='text-center text-success'>Nuestros Platos</span>
           <h3 className='text-center color fw-bold'>Platos Populares</h3>
         </div>
-        <div className='d-flex'>
-          <div>
-            <FilterMenu />
+        <div className='container d-flex'>
+          <div className='w-25'>
+            <FilterMenu menuData={menuData} />
           </div>
-          <div className='row'>
+          <div className='row ms-5'>
             {
-              menuData?.map(menu => <Menus key={menu.id} {...menu} />)
+              filteredMenu?.map(menu => <Menus key={menu.id} {...menu} />)
             }
           </div>
         </div>
