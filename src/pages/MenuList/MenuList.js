@@ -5,17 +5,22 @@ import { Menus } from '../../components/Menus';
 import { Nabvar } from '../../components/Navbar';
 import menuContext from '../../provider/MenuContext';
 import './menulist.scss';
+import { SearchBar } from '../../components/SearchBar';
+import useSearchMenu from '../../hooks/useSearchMenu';
 
 const MenuList = () => {
-  const { setMenuData, menuData, filteredMenu } = useContext(menuContext);
+  const {
+    setMenuData, menuData, filteredMenu, setFilteredMenu, setSearchMenu, searchMenu,
+  } = useContext(menuContext);
   const user = JSON.parse(localStorage.getItem('User'));
   if (!user?.token) window.location.href = '/login';
-
+  const { handleSearchMenu } = useSearchMenu(searchMenu, setFilteredMenu, setSearchMenu, menuData);
   const getDataMenu = async () => {
     const resp = await fetch('http://localhost:8000/menu');
     const json = await resp.json();
     const menuFiltered = json?.menu.filter(menu => user.user.empresa === menu.empresa || menu.empresa === 'Ambas');
     setMenuData(menuFiltered);
+    setFilteredMenu(menuFiltered);
   };
 
   useEffect(() => {
@@ -36,7 +41,10 @@ const MenuList = () => {
         </div>
         <div className='container d-flex'>
           <div className='w-25'>
-            <FilterMenu menuData={menuData} />
+            <div className='select-box'>
+              <SearchBar handleChange={handleSearchMenu} placeholder='Buscar plato...' />
+              <FilterMenu menuData={menuData} />
+            </div>
           </div>
           <div className='row ms-5'>
             {
