@@ -5,7 +5,16 @@
   background-color: #eceded7a;
   h3{
     color: #162B54;
-  } 
+  }
+  .select-box{
+    position: sticky;
+    top: 5em;
+    border: 1px solid rgb(179, 176, 176);
+    background-color: #fff;
+    border-radius: 7px;
+    width: 100%;
+    padding: 10px;
+  }
 }
 .nav-opacity{
   width: 100%;

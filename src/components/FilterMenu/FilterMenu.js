@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import menuContext from '../../provider/MenuContext';
-import './filtermenu.scss';
 
 const FilterMenu = ({ menuData }) => {
   const { setFilteredMenu } = useContext(menuContext);
@@ -14,15 +13,13 @@ const FilterMenu = ({ menuData }) => {
     }
   };
   return (
-    <div className='select-box'>
-      <select className="form-select w-100" aria-label="Default select example" onChange={handleChange}>
+      <select className="form-select w-100 mb-4" aria-label="Default select example" onChange={handleChange}>
         <option selected hidden>Filter Menu:</option>
         <option value="">Todos</option>
         <option value="carnes">Carnes</option>
         <option value="pastas">Pastas</option>
         <option value="vegano">P/Veganos</option>
       </select>
-    </div>
   );
 };
 
