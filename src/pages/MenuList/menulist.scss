@@ -1,16 +1,15 @@
+@import '../../styles/global.scss';
+
 .section-carousel{
-  border-bottom: 2px solid rgba(128, 128, 128, 0.267);
+  border-bottom: 1px solid $border-color-carousel;
 }
 .section-menu{
-  background-color: #eceded7a;
-  h3{
-    color: #162B54;
-  }
+  background-color: $section-menu-bg;
   .select-box{
     position: sticky;
     top: 5em;
-    border: 1px solid rgb(179, 176, 176);
-    background-color: #fff;
+    border: 1px solid $color-border-select;
+    background-color: $white-default;
     border-radius: 7px;
     width: 100%;
     padding: 10px;

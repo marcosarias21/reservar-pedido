@@ -14,7 +14,7 @@
     }
     .button-main{
       background-color: $main-color;
-      color: #fff;
+      color: $white-default;
     }
    
   }
@@ -22,12 +22,14 @@
 
 .carousel-control-prev{
   span{
-    background-color: #87858536;
+    background-color: $light-gray;
+    border-radius: $control-b-radius;
   }
   }
 .carousel-control-next{
   span{
-    background-color: #87858536;
+    background-color: $light-gray;
+    border-radius: $control-b-radius;
   }
 }
 
@@ -47,7 +49,7 @@
   }
 }
 
-@media (min-width: 776px) and (max-width: 1000px) {
+@media (min-width: 760px) and (max-width: 1000px) {
   .carousel-item{
     height: auto;
     .card-carousel{

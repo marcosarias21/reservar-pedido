@@ -1,4 +1,5 @@
 import { useContext, useEffect } from 'react';
+import { AiOutlineSearch } from 'react-icons/ai';
 import { Carousel } from '../../components/Carousel';
 import { FilterMenu } from '../../components/FilterMenu';
 import { Menus } from '../../components/Menus';
@@ -13,8 +14,8 @@ const MenuList = () => {
     setMenuData, menuData, filteredMenu, setFilteredMenu, setSearchMenu, searchMenu,
   } = useContext(menuContext);
   const user = JSON.parse(localStorage.getItem('User'));
-  if (!user?.token) window.location.href = '/login';
   const { handleSearchMenu } = useSearchMenu(searchMenu, setFilteredMenu, setSearchMenu, menuData);
+
   const getDataMenu = async () => {
     const resp = await fetch('http://localhost:8000/menu');
     const json = await resp.json();
@@ -24,6 +25,7 @@ const MenuList = () => {
   };
 
   useEffect(() => {
+    if (!user?.token) window.location.href = '/login';
     getDataMenu();
   }, []);
 
@@ -39,17 +41,20 @@ const MenuList = () => {
           <span className='text-center text-success'>Nuestros Platos</span>
           <h3 className='text-center color fw-bold'>Platos Populares</h3>
         </div>
-        <div className='container d-flex'>
-          <div className='w-25'>
-            <div className='select-box'>
+        <div className='row'>
+          <div className='col-12 col-md-5 col-xl-3'>
+            <div className='select-box my-4'>
+              <h4 className='text-center fw-bold my-3'><AiOutlineSearch /> Busca tu menu</h4>
               <SearchBar handleChange={handleSearchMenu} placeholder='Buscar plato...' />
               <FilterMenu menuData={menuData} />
             </div>
           </div>
-          <div className='row ms-5'>
-            {
-              filteredMenu?.map(menu => <Menus key={menu.id} {...menu} />)
-            }
+          <div className='col-10 col-sm-12 col-md-7 col-xl-8'>
+            <div className='row ms-5 gap-1'>
+              {
+                filteredMenu?.map(menu => <Menus key={menu.id} {...menu} />)
+              }
+            </div>
           </div>
         </div>
       </div>
