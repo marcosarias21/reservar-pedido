@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;900&display=swap');
 $background-color: #F4ECE1;
 $main-color: #162B54;
+$border-color-carousel: #80808044;
+$control-b-radius: 99px;
+$light-gray: #878585;
+$section-menu-bg: #eceded7a;
+$color-border-select: #b3b0b052;
+$white-default: #fff;
 $font-family: 'Inter', sans-serif;
 
 body {
   font-family: $font-family;
+  h3{
+    color: $main-color;
+  }
 }
