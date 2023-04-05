@@ -6,6 +6,7 @@
 .section-menu{
   background-color: $section-menu-bg;
   .select-box{
+    z-index: 1;
     position: sticky;
     top: 5em;
     border: 1px solid $color-border-select;

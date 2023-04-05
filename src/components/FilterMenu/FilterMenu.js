@@ -1,11 +1,13 @@
 import { useContext } from 'react';
+import Select from 'react-select';
 import menuContext from '../../provider/MenuContext';
+import { optiosMenu } from '../../helpers/optionsMenu';
 
 const FilterMenu = ({ menuData }) => {
   const { setFilteredMenu } = useContext(menuContext);
 
   const handleChange = (e) => {
-    const menuFilteredByType = menuData.filter(menu => menu.type === e.target.value);
+    const menuFilteredByType = menuData.filter(menu => menu.type === e.value);
     if (menuFilteredByType.length === 0) {
       setFilteredMenu(menuData);
     } else {
@@ -13,13 +15,7 @@ const FilterMenu = ({ menuData }) => {
     }
   };
   return (
-      <select className="form-select w-100 mb-4" aria-label="Default select example" onChange={handleChange}>
-        <option selected hidden>Filter Menu:</option>
-        <option value="">Todos</option>
-        <option value="carnes">Carnes</option>
-        <option value="pastas">Pastas</option>
-        <option value="vegano">P/Veganos</option>
-      </select>
+    <Select placeholder='Filtrar por tipo de menu:' options={optiosMenu} value={optiosMenu.value} onChange={handleChange} />
   );
 };
 
