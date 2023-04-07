@@ -4,3 +4,27 @@
   box-shadow: -1px 3px 10px 0px rgba(0,0,0,0.75);
   padding: 20px;
 }
+
+@media (min-width: 300px) and (max-width: 450px) {
+  .login-form{
+    width: 95%;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 715px) {
+  .login-form{
+    width: 85%;  
+  }
+}
+
+@media (min-width: 716px) and (max-width: 1000px) {
+  .login-form{
+    width: 80%;   
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1440px) {
+  .login-form{
+    width: 70%;
+  }
+}

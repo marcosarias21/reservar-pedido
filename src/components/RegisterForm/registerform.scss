@@ -17,3 +17,27 @@
       letter-spacing: 1.2px;
     }
 }
+
+@media (min-width: 300px) and (max-width: 450px){
+  .form-bg{
+    width: 95%;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 715px){
+  .form-bg{
+    width: 85%;
+  }
+}
+
+@media (min-width: 717px) and (max-width: 1000px){
+  .form-bg{
+    width: 80%;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1440px){
+  .form-bg{
+    width: 70%;
+  }
+}

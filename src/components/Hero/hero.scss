@@ -3,33 +3,95 @@
   height: 100vh;
   background-color: $background-color;
   div{
-    span{
-      font-size: 2rem;
-      font-weight: bolder;
-      color: #2F2F2F;
-    }
-    div{
-      h6{
-        color: #C3C0BB;
-        font-family: cursive;
-        letter-spacing: 1.5px;
+    .width-box{
+      span{
+        font-size: 2rem;
+        font-weight: bolder;
+        color: #2F2F2F;
       }
-      button{
-        background-color: #2F2F2F;
-        color: #fff;
-        border-radius: 100px;
-        box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.75);
+      div{
+        h6{
+          font-family: cursive;
+          letter-spacing: 1.5px;
+        }
+        button{
+          background-color: #2F2F2F;
+          color: #fff;
+          border-radius: 100px;
+          box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.75);
+        }
       }
     }
-  }
-  .text-color-title{
-    color: #FF7E00;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 6rem;
-    letter-spacing: 2px;
+    .text-color-title{
+      color: #FF7E00;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: 6rem;
+      letter-spacing: 2px;
+    }
   }
   .img-hero{
-    margin-right: 300px;
+    width: 100%;
     height: 100%;
+  }
+}
+
+
+@media (min-width: 300px) and (max-width: 715px) {
+  .hero-section{
+    background-image: url('../../assets/images/backgroundimage.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20%;
+    height: 100vh;
+    width: 100%;
+    div{
+      .width-box{
+        backdrop-filter: blur(5px);
+        span{
+          font-size: 1rem;
+        }
+        div{
+          button{
+            border-radius: 20px;
+            box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.75);
+          }
+        }
+      }
+      .text-color-title{
+        font-size: 2rem;
+        letter-spacing: 1px;
+      }
+    }
+    .img-display {
+      display: none !important;
+    }
+  }
+}
+
+@media (min-width: 716px) and (max-width: 1000px) {
+  .hero-section{
+    div{
+      .width-box{
+        backdrop-filter: blur(5px);
+        span{
+          font-size: 2rem;
+          color: #2F2F2F;
+        }
+        div{
+          button{
+            border-radius: 20px;
+            box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.75);
+          }
+        }
+      }
+      .text-color-title{
+        font-size: 4rem;
+        letter-spacing: 1px;
+      }
+      .img-hero{
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 }
