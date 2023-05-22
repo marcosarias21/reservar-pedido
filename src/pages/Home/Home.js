@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <>
-    <Nabvar user={user} className={'fixed-top enable-shadows'} />
+    <Nabvar user={user} className={'fixed-top enable-shadows navbar-dark'} />
     <section className='hero'>
       <Hero />
     </section>

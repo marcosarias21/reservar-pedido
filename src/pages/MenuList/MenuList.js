@@ -50,7 +50,7 @@ const MenuList = () => {
             </div>
           </div>
           <div className='col-10 col-sm-12 col-md-7 col-xl-8'>
-            <div className='row ms-5 gap-1'>
+            <div className='row ms-5 gap-2'>
               {
                 filteredMenu?.map(menu => <Menus key={menu.id} {...menu} />)
               }
