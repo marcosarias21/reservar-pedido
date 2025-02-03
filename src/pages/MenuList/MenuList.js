@@ -19,6 +19,7 @@ const MenuList = () => {
   const getDataMenu = async () => {
     const resp = await fetch('http://localhost:8000/menu');
     const json = await resp.json();
+    console.log(json);
     const menuFiltered = json?.menu.filter(menu => user.user.empresa === menu.empresa || menu.empresa === 'Ambas');
     setMenuData(menuFiltered);
     setFilteredMenu(menuFiltered);

@@ -6,6 +6,7 @@ import './menuspage.scss';
 
 const MenusPage = () => {
   const { user } = JSON.parse(localStorage.getItem('User'));
+  console.log(user);
   const tableRef = useRef();
   const [allMenu, setAllMenu] = useState([]);
   console.log(allMenu);
